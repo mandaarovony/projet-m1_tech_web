@@ -1,0 +1,40 @@
+.product-card {
+    background-color: #f9fafb;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-image {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 4px;
+    font-family: 'DM Sans', sans-serif; 
+  }
+  
+  .product-subtitle {
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif; 
+  }
+  
+  .product-price {
+    font-size: 17px;
+    font-weight: bold;
+    color: #111827;
+    font-family: 'Inter', sans-serif; 
+  }
+  

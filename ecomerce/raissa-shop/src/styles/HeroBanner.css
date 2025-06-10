@@ -1,0 +1,81 @@
+.hero-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EAEEEF;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px ;
+    max-width: 1700px;
+    height: 400px;
+    gap: 40px;
+  }
+  
+  .hero-text {
+    flex: 1;
+    margin-top: -30px;
+    margin-left: 50px;
+  }
+  
+  .discount {
+    color: #EC5E2A;
+    font-weight: bold;
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family: 'DM Sans', sans-serif; 
+
+  }
+  
+  .hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0;
+    color: #111827;
+    font-family: 'DM Sans', sans-serif; 
+    margin-top: 30px;
+
+  }
+  
+  .hero-subtitle {
+    font-size: 24px;
+    color: #6b7280;
+    margin: 15px 0;
+    font-family: 'Inter', sans-serif; 
+    margin-top: 40px;
+  }
+  
+  .shop-button {
+    background-color: #201B21;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif; 
+    transition: background 0.3s ease;
+    margin-top: 50px;
+    width: 300px;
+    height: 70px;
+  }
+  
+  .shop-button:hover {
+    background-color: #000;
+  }
+  
+  .hero-image img {
+    width: 650px;
+    max-width: 100%;
+  }
+  
+  .hero-image img:hover {
+    transform: translateY(-5px);
+
+  }
+  .hero-image img {
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-image img:hover {
+    transform: scale(1.05);
+  }
