@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 import HeroBanner from "../components/HeroBanner.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 
@@ -21,35 +22,43 @@ function Home() {
   }, []);
 
   return (
-    <main style={{ padding: "0 40px" }}>
-      <HeroBanner />
+    <main
+  style={{
+    padding: "0 40px",
+    maxWidth: "1700px",
+    margin: "0 auto",
+  }}
+>
+  <HeroBanner />
 
-      <section style={{ marginTop: "60px" }}>
-        <h2
-          style={{
-            fontSize: "38px",
-            marginBottom: "20px",
-            marginLeft: "20px",
-            fontFamily: "Inter",
-            fontWeight: "bold",
-          }}
-        >
-          Explore our latest drops
-        </h2>
+  <section style={{ marginTop: "60px" }}>
+    <h2
+      style={{
+        fontSize: "38px",
+        marginBottom: "20px",
+        marginLeft: "20px",
+        fontFamily: "Inter",
+        fontWeight: "bold",
+      }}
+    >
+      Explore our latest drops
+    </h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "20px",
-          }}
-        >
-          {products.map((p, i) => (
-            <ProductCard key={i} {...p} />
-          ))}
-        </div>
-      </section>
-    </main>
+    <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+  }}
+>
+  {products.slice(0, 4).map((p, i) => (
+    <ProductCard key={i} {...p} />
+  ))}
+</div>
+
+  </section>
+</main>
+
   );
 }
 

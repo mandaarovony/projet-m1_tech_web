@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"; // Import de useNavigate
+import { useNavigate } from "react-router-dom"; 
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -11,11 +11,12 @@ import {
 } from "../redux/panierSlice";
 import "../styles/Cart.css";
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 function Cart() {
-  const panier = useSelector((state) => state.panier); // panier est un objet { panierId, items }
+  const panier = useSelector((state) => state.panier);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Hook pour la navigation
+  const navigate = useNavigate(); 
 
   const handleRemove = (id) => {
     dispatch(retirerDuPanier(id));
@@ -42,21 +43,32 @@ function Cart() {
       });
 
       if (response.status === 200) {
-        // Nettoyage Redux après checkout
+
         dispatch(viderPanier());
 
-        // Optionnel : Créer un nouveau panier immédiatement
+       
         const res = await axios.post("http://localhost:5000/api/carts");
         dispatch(setPanierId(res.data.id));
 
-        alert("Commande validée avec succès !");
-
-        // Redirection vers la page d'accueil après confirmation
-        navigate("/"); // Redirection vers la route "/"
+      
+        Swal.fire({
+          title: 'Succès !',
+          text: 'Commande validée avec succès !.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+        navigate("/"); 
       }
     } catch (error) {
       console.error("Erreur lors du checkout :", error);
-      alert("Erreur lors du checkout.");
+        
+      Swal.fire({
+        title: 'Erreur !',
+        text: 'Erreur lors du checkout!.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    
     }
   };
 
@@ -72,8 +84,8 @@ function Cart() {
   if (panier.items.length === 0) {
     return (
       <main className="cart-page">
-        <h1>Your Bag</h1>
-        <p>Votre panier est vide.</p>
+        <h1 className="hA">Your Bag</h1>
+        <p className="para">Votre panier est vide.</p>
       </main>
     );
   }

@@ -46,3 +46,6 @@
     width: 100px; /* laisse vide ou mets un lien ici si besoin */
   }
   
+  @media (max-width: 769px) {
+    
+  }

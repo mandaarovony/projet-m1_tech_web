@@ -12,6 +12,14 @@
   flex-wrap: wrap;
 }
 
+.hA{
+  text-align: center;
+}
+.para{
+
+  font-size: xx-large;
+  text-align: center;
+}
 .cart-items {
   flex: 2;
 }
