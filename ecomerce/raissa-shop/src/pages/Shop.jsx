@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HeroBanner from "../components/HeroBanner.jsx";
 import ProductCard from "../components/ProductCard.jsx";
-
+import { Link } from "react-router-dom";
 function Home() {
   const [products, setProducts] = useState([]);
 
@@ -24,8 +24,9 @@ function Home() {
     <main style={{ padding: "0 40px" }}>
 
       <section style={{ marginTop: "60px" }}>
-       
-
+        <Link to="/ajout">
+       <button className="btn-success">Ajouter</button>
+</Link>
         <div
           style={{
             display: "grid",

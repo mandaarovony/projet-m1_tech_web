@@ -67,4 +67,5 @@ router.post("/", productCtrl.creer);
 
 router.get("/:id", productCtrl.unProduit);
 router.delete("/:id", productCtrl.supprimer);
+router.post('/generer-fake',productCtrl.genererFakeProduits);
 module.exports = router;

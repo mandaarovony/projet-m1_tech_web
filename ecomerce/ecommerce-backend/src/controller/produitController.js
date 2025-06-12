@@ -1,5 +1,7 @@
 const { Product } = require("../models");
 const upload = require('../config/multer');
+const { faker } = require('@faker-js/faker');
+
 exports.tous = async (req, res) => {
   try {
     const products = await Product.findAll();
@@ -53,3 +55,29 @@ exports.creer = [
     }
   }
 ];
+exports.genererFakeProduits = async (req, res) => {
+  try {
+    const nombre = parseInt(req.query.nombre) || 10;
+    const produits = [];
+
+    for (let i = 0; i < nombre; i++) {
+      const fakeProduct = {
+        titre: faker.commerce.productName(),
+        description: faker.commerce.productDescription(),
+        prix: faker.commerce.price(10, 100, 2),
+        image: faker.image.urlPicsumPhotos({ width: 640, height: 480 }),
+      };
+      
+      const produitCree = await Product.create(fakeProduct);
+      produits.push(produitCree);
+    }
+
+    res.status(201).json(produits);
+  } catch (error) {
+    console.error("Erreur lors de la génération des produits factices:", error);
+    res.status(500).json({
+      message: "Erreur lors de la génération des produits factices",
+      error: error.message || error,
+    });
+  }
+};
